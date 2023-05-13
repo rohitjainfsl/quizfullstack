@@ -1,0 +1,13 @@
+html
+    head 
+        title Admin Login
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel="stylesheet", href="../assets/css/style.css")
+    body 
+        header
+            h2 Admin Signup
+        form(method="post", action="/admin/login")
+            input(type="text" placeholder="Enter Username" name="username")
+            input(type="password" placeholder="Enter Password" name="password")
+            button(type="submit" name="login") Login

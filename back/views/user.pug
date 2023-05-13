@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Quiz App
+  body
+    header
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='#') Quiz App
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbarNav
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='/user/quiz') Quiz
+            li.nav-item
+              a.nav-link(href='/user/logout') Logout
+    .container.mt-4
+      block content
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/user.js')
+w
