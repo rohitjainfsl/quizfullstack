@@ -30,7 +30,7 @@ router.post('/signup', async (req, res) => {
     // res.redirect('/user/quiz');
   } catch (error) {
     console.log(error);
-    res.redirect('/user/signup');
+    res.redirect('user/signup');
   }
 });
 

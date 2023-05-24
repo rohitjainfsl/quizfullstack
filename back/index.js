@@ -6,6 +6,8 @@ import UserRouter from "./routes/user.js";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 
+const apiUrl = window.location.origin;
+
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -16,7 +18,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://fullstackquiz.vercel.app",
+        url: apiUrl,
       },
     ],
   },
@@ -28,7 +30,6 @@ const app = express();
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specifications));
 
-const apiUrl = window.location.origin;
 
 // Set up middleware and routes
 app.use(cors({ origin: apiUrl }));
