@@ -6,11 +6,12 @@ function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const apiUrl = window.location.origin;
 
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/user/login", {
+      .post(apiUrl + "/user/login", {
         username: username,
         password: password,
       })

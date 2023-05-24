@@ -11,10 +11,70 @@ router.use(session({
   saveUninitialized: true
 }));
 
-// GET /admin/signup
-router.get('/signup', (req, res) => {
-  res.render('admin/signup');
-});
+
+
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Admin:
+ *       type: object
+ *       required:
+ *         - name
+ *         - email
+ *         - username
+ *         - password
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: The auto-generated id of the admin
+ *         name:
+ *           type: string
+ *           description: Admin Name
+ *         email:
+ *           type: string
+ *           description: Admin Email
+ *         username:
+ *           type: string
+ *           description: Admin Username
+ *         password:
+ *           type: string
+ *           description: Hashed Admin Password
+ *       example:
+ *         id: d5fE_asz
+ *         name: Admin
+ *         email: quiz_admin@gmail.com
+ *         username: quiz_admin
+ *         password: sr23r435a@#df45aser4#
+ */
+
+ /**
+  * @swagger
+  * tags:
+  *   name: Admin
+  *   description: The Admin Registeration & Login
+  */
+
+/**
+ * @swagger
+ * /admin:
+ *   post:
+ *     summary: Returns the from for admin signup
+ *     tags: [Admin]
+ *     responses:
+ *       200:
+ *         description: Admin Login Form
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Admin'
+ */
+
+
+
 
 // POST /admin/signup
 router.post('/signup', async (req, res) => {
@@ -120,7 +180,7 @@ router.get('/users', (req, res) => {
 // DELETE /admin/users/:id
 router.delete('/users/:id', (req, res) => {
   // Delete the user from the database
-  res.sendStatus(200);
+  res.status(200);
 });
 
 export default router;

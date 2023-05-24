@@ -8,11 +8,12 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const apiUrl = window.location.origin;
 
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/user/signup", {
+      .post(apiUrl + "/user/signup", {
         name: name,
         email: email,
         username: username,
