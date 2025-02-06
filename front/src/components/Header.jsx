@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useUser } from "../contexts/UserProvider";
-import CreateUserPopup from "./CreateUserPopup";
+
 function Header() {
-  const { setPopup, popup, savedUser } = useUser();
+  const { stage, user } = useUser();
   return (
     <>
       <header>
@@ -10,15 +10,17 @@ function Header() {
         <ul>
           <li>
             <Link to="/">Home</Link>
-            {savedUser ? (
-              <p>{savedUser}</p>
-            ) : (
-              <button onClick={() => setPopup(true)}>Start Quiz</button>
-            )}
           </li>
+          {stage > 1 && (
+            <li>
+              Welcome{" "}
+              <strong>
+                <em>{user}</em>
+              </strong>
+            </li>
+          )}
         </ul>
       </header>
-      {(popup ? <CreateUserPopup /> : "")}
     </>
   );
 }
